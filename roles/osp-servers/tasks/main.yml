@@ -8,3 +8,4 @@
   include_tasks: assign-ip.yml
 
 - name: Wait for server to be available
+  include_tasks: waitfor-server.yml

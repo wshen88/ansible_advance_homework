@@ -1,4 +1,4 @@
-  - name: Add floating IP to "{{ item.value.name }}"
+  - name: Add floating IP
     os_floating_ip:
       cloud: ospcloud
       state: present
@@ -8,6 +8,7 @@
       wait: true
       timeout: 180
     register: instancefloatingip
+    with_dict: "{{ osp_servers }}"
 
-  - name: Show Assigned Floating IP
-    debug: var=instancefloatingip
+#  - name: Show Assigned Floating IP
+#    debug: var=instancefloatingip

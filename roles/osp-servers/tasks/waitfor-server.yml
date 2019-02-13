@@ -1,0 +1,10 @@
+  - name: Show Assigned Floating IP
+    debug: var=instancefloatingip
+
+  - name: Wait for servers to be available
+    wait_for:
+      host: "{{ item.floating_ip.floating_ip_address }}"
+      port: 22
+      search_regex: OpenSSH
+      timeout: 600
+    with_items: "{{ instancefloatingip.results }}"      

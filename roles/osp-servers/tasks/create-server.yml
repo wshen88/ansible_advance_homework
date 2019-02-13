@@ -3,7 +3,7 @@
       cloud: ospcloud
       name: "{{ item.value.name }}"
       image: rhel-guest
-      meta: "{{ item.value.meta }}"
+      meta: "{{ item.value.meta[0] }}"
       flavor: m2.small
       security_groups: "{{ item.value.security_group }}"
       key_name: ansible_ssh
@@ -16,8 +16,4 @@
         cat /tmp/openstack.pub >> /home/cloud-user/.ssh/authorized_keys
         curl -o /tmp/internal.repo http://www.opentlc.com/download/ansible_bootcamp/repo/internal.repo
         cp /tmp/internal.repo /etc/yum.repos.d/internal.repo
-    register: instanceip
     with_dict: "{{ osp_servers }}"
-
-  - name: Show created server output
-    debug: var=instanceip
