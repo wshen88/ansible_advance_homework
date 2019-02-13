@@ -1,5 +1,5 @@
-  - name: Show Assigned Floating IP
-    debug: var=instancefloatingip
+#  - name: Show Assigned Floating IP
+#    debug: var=instancefloatingip
 
   - name: Wait for servers to be available
     wait_for:
