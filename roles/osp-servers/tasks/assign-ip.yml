@@ -1,0 +1,13 @@
+  - name: Add floating IP to "{{ item.value.name }}"
+    os_floating_ip:
+      cloud: ospcloud
+      state: present
+      reuse: yes
+      server: "{{ item.value.name }}"
+      network: ext_network
+      wait: true
+      timeout: 180
+    register: instancefloatingip
+
+  - name: Show Assigned Floating IP
+    debug: var=instancefloatingip
