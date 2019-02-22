@@ -1,5 +1,6 @@
 #- hosts: tag_instance_filter_three_tier_app_psrivast_redhat_com
-- hosts: tag:instance_filter=three-tier-app-weishen-redhat.com
+- hosts: tag_instance_filter_three_tier_app_weishen_redhat_com
+#- hosts: tag:instance_filter=three-tier-app-weishen-redhat.com
   gather_facts: false
   tasks:
   - name: Check the instances status
